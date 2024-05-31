@@ -39,16 +39,17 @@ Finendo con
 **1 2 3 4 5**
 
 ```c
-void insertionSort(int *arr, int n) {
-int i, key, *j;
-for (i = 1; i < n; i++)
+void insertionSort(int *arr, int n)
 {
-	key = *(arr + i); //salvo in temporanea
-	j = arr + i - 1;
-	while (j >= arr && *j > key)
+	int i, key, *j;
+	for (i = 1; i < n; i++)
 	{
-		*(j + 1) = *j; // sposto l'attuale avanti o meglio dire lo copio
-		j--;
+		key = *(arr + i); //salvo in temporanea
+		j = arr + i - 1;
+		while (j >= arr && *j > key)
+		{
+			*(j + 1) = *j; // sposto l'attuale avanti o meglio dire lo copio
+			j--;
 		}
 		*(j + 1) = key; // Inserisce l'elemento nella posizione corretta
 	}
