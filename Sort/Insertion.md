@@ -9,7 +9,7 @@ Ripeti fino alla fine dell'array.
 L'Elemento minore trovato, va salvato in una temporanea per essere valutato nel loop secondario.
 
 ### **Loop secondario:**
-Partendo dalla posizione dell'loop principale SCORRO all'Indietro (finchè [while]) non siamo all'index 0 o finchè il temporaneo non è minore dell'elemento attuale.
+Partendo dalla posizione dell'loop principale SCORRO all'Indietro (finchè [while]) non siamo all'index 0 o finchè il temporaneo non è maggiore dell'elemento attuale.
 l'elemento nella temporanea è più grande del elemento salvato in temporanea.
 Durante il loop, se la temporanea rimane minore l'elemento successivo andrà a coprire il posto attuale.
 Uscito da questo loop e quindi avendo trovato lo **0 index o l'elemento minore** dell'elemento in temporanea, si va a sostituire l'elemento dell'attuale posizione di loop con l'elemento temporaneo.
