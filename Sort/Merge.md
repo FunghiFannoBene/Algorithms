@@ -13,7 +13,14 @@ per nozione **un numero singolo è sempre ordinato**
 >Trovare sempre la posizione MID degli elementi passati tramite la formula: mid = left + (right - left) / 2;
 >Può essere confusionario ma mid è l'elemento di mezzo che viene passato come fine del primo merge, punto di arrivo e  
 >mid +1 è passato per la seconda chiamata del mergeSort che indica l'elemento successivo al mid.
+```c
+	// Ordina prima e seconda metà
+	mergeSort(arr, left, mid);
+	mergeSort(arr, mid + 1, right);
 
+	// Unisci le metà ordinate
+	merge(arr, left, mid, right);
+```
 
 ## Fase di ricongiuzione
 
