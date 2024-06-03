@@ -1,3 +1,3 @@
-# Impara algoritmi
+# Learn Algorithms
 
-## Progetto creato per salvarsi gli algoritmi, impararli e copiarsi il codice di tale velocemente in caso di bisogno.
+## Progetto creato per imparare algoritmi, archiviarne il codice e poterlo così implementare velocemente in caso di necessità.
