@@ -7,13 +7,9 @@
 
 ## Fase 1.
 
-Selezione di pivot: il pivot può essere qualsiasi numero, è un numero intermezzo che andrà a dividere i più piccoli
-  di pivot stesso e i più grandi di pivot.
-  il passaggio dei parametri include l'array, il punto d'inizio e il punto di fine come **INDEX** 
-  (Non size ma size -1)
-  Di questi selezioniamo 
-  il punto d'inizio come iteratore I in questo caso,
-  Iteratore J come punto di fine.
+Selezione di pivot: il pivot può essere qualsiasi numero dell'array. È un numero che dividerà gli elementi più piccoli da quelli più   grandi.  
+Il passaggio dei parametri include l'array, l'indice d'inizio e l'indice di fine (non la dimensione ma size - 1).  
+Selezioniamo il punto d'inizio come iteratore i e il punto di fine come iteratore j.  
 
 ## Fase 2.
 
@@ -21,9 +17,7 @@ Loop principale:
 ```c++
 while (i <= j)
 ```
-Contiene 2 loop, di cui 1 muove dall'inizio fino a quando non trova un numero inferiore al pivot.    
-Il secondo loop fa dalla finee verso l'inizio e si ferma quando un numero è maggiore al pivot.  
-In questo caso dal primo loop troviamo un numero **più piccolo del pivot e l'altro maggiore.**  
+Contiene 2 loop: il primo muove dall'inizio fino a quando non trova un numero maggiore o uguale al pivot. Il secondo loop parte dalla  fine verso l'inizio e si ferma quando trova un numero minore o uguale al pivot.  
 
 ```c++
 while (arr[i] < pivot) i++;  
@@ -31,9 +25,7 @@ while (arr[j] > pivot) j--;
 ```
 
 ## Fase 3.
-Valutazione dei 2 numeri trovati, l'iteratore I deve essere inferiore o uguale a J  
-In questo modo possiamo swapparli sapendo di non essere finiti nell'altra metà gestita da iteratori diversi  
-I aumenta e J scende.
+Scambio degli elementi: Se i è minore o uguale a j, si scambiano gli elementi. i incrementa e j decrementa.  
 
 ```c++
 if(i <= j)
@@ -45,21 +37,19 @@ if(i <= j)
 ```
 
 ## Fase 4.
-Ora chiamiamo 2 if, una valuta "l'inizio o left" con j, se l'inizio che era 0 (almeno inizialmente) è uguale a j  
-Possiamo dire che j ha finito il suo lavoro completamente e quindi quicksort non viene richiamato,  
-Altrimenti si ripassa dinuovo  
+Ricorsione: Si richiama quicksort sui sotto-array se ci sono ancora elementi da ordinare. Se left è minore di j, ordina la parte sinistra. Se i è minore di right, ordina la parte destra.  
 ```c++
 if (left < j) quicksort(arr, left, j);
 ```
 
-Ora si fa inversamente per la i se i è inferiore a right, il suo compito non è ancora finito e si passa ricorsivamente:
+Ora si fa inversamente per la i se i è inferiore a right, il suo compito non è ancora finito e si passa ricorsivamente:  
 
 ```c++
 if (i < right) quicksort(arr, i, right);
 ```
 
-da notare che questo fa da **left a j** e da **i a right**.
-Significa che siccome la condizione di stop è che i < j divide la parte in metà (anche non uguali in base al pivot).
+da notare che questo fa da **left a j** e da **i a right**.  
+Significa che siccome la condizione di stop è che i < j divide la parte in metà (anche non uguali in base al pivot).  
 
 
 ```c++
