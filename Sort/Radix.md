@@ -12,3 +12,36 @@ Conta le occorrenze di ciascun valore nell'array di input e memorizza queste con
 Calcola le posizioni cumulative nell'array di conteggio.
 Costruisci l'array ordinato scorrendo l'array di input in ordine inverso e posizionando ciascun elemento nella sua posizione corretta basata sull'array di conteggio.
 
+## Counting sort
+
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void countingSort(vector<int>& arr)
+{
+    int max = *max_element(arr.begin(), arr.end()); //valore massimo
+    vector<int> count(max + 1, 0); //crea un vettore inizializzato a 0, di dimensioni max+1;
+
+    // Conta le occorrenze usando hashing, posizione num
+    for (int num : arr)
+        count[num]++;
+
+    // Conte cumulative
+    for (int i = 1; i <= max; i++)
+        count[i] += count[i - 1];
+
+    // Costruisci l'array ordinato
+    vector<int> output(arr.size());
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        output[count[arr[i]] - 1] = arr[i];
+        count[arr[i]]--;
+    }
+
+    // Copia l'output nell'array originale
+    for (int i = 0; i < arr.size(); i++) {
+        arr[i] = output[i];
+    }
+}
+```
